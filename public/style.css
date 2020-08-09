@@ -1,0 +1,19 @@
+h3 {
+    text-align: center;
+    color: black;
+    font-weight: bolder;
+}
+
+#grid-video {
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+   gap: 10px;
+}
+
+video {
+    object-fit: cover;
+    width: 300px;
+    height: 400px;
+    
+}
