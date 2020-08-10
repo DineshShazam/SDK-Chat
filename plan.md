@@ -12,7 +12,9 @@
     - get the id of other user and call the other user
     - create a new vid element for the user and telecast their stream 
 
-
++ step-3
+    - implementing chat box
+        @desc = get the chat value from input using jquery
 
 
 
