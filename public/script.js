@@ -17,7 +17,7 @@ const peers = {}
 var MyVideoStream;
 navigator.mediaDevices.getUserMedia({
     video: true,
-    audio: true
+    audio: false
 }).then(stream =>   {
 
 
@@ -49,14 +49,22 @@ $('html').keydown((e) => {
 
     if(e.which == 13 && text.val().length !== 0) {
         console.log(text.val())
-        socket.emit('message',text.val());
+        const Display_name = localStorage.getItem("user_name");
+        console.log(Display_name);
+        socket.emit('message',text.val(),Display_name);
         text.val('')   
     }
 })
 
-socket.on('create-msg', msg => {
-    console.log('message from server',msg)
-    $('ul').append(`<li class="message"><b>User<b><br/>${msg}</li>`)
+socket.on('create-msg', (msg,name) => {
+    console.log('message from server',name)
+    const user_name = name.replace(/["']/g, "");
+
+    $('ul').append(`<li class="message">
+    <b style="color:white">${user_name}<b><br/>
+    <p style="color:white">${msg}</p>
+    
+    </li>`)
     scrollToBottom()
 })
    
@@ -93,8 +101,10 @@ peer.on('open', id => {
 // }
 
 const LeaveRoom = (room) => {
-    console.log(room)
+    alert('You Gonna leave the room')
     socket.emit('user-disconnect',room)
+    localStorage.removeItem('user_name');
+    window.location.href="/"
 
 }
 
@@ -231,4 +241,4 @@ const setMuteButton = () => {
       <span>Play Video</span>
     `
     document.querySelector('.main__video_button').innerHTML = html;
-  }
+  } 
