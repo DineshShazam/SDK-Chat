@@ -5,12 +5,16 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "nodemon --exec babel-node server.js"
+    "dev": "nodemon --exec babel-node server.js",
+    "build": "npm run clean && babel . --ignore node_modules --out-dir build",
+    "heroku-postbuild": "npm run build && npm run start",
+    "clean": "rimraf build",
+    "start": "node build/server.js"
   },
   "author": "Dinesh",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
     "peer": "^0.5.3",
@@ -18,10 +22,11 @@
     "uuid": "^8.3.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4",
     "@babel/core": "^7.9.6",
     "@babel/node": "^7.8.7",
     "@babel/plugin-transform-runtime": "^7.9.6",
-    "@babel/preset-env": "^7.9.6"
+    "@babel/preset-env": "^7.9.6",
+    "nodemon": "^2.0.4",
+    "rimraf": "^3.0.2"
   }
 }
