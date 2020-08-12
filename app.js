@@ -20,9 +20,13 @@ app.engine('hbs',handlebars({
 
 app.get('/',(req,res) => {  
     
-   res.redirect(`/${uuidv4()}`)
+   res.render('lbody',{layout:'login'});
 
 });
+
+app.get('/vid-room',(req,res) => {
+    res.redirect(`/${uuidv4()}`)
+})
 
 app.get('/:roomid',(req,res) => {
    
