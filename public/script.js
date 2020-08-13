@@ -40,6 +40,7 @@ navigator.mediaDevices.getUserMedia({
     socket.on('User-Joined', (userId) => {
 
         ConnecToNewUser(userId, stream);
+        window.location.reload();
     })
 
 // Chat Box
@@ -121,9 +122,10 @@ const ConnecToNewUser = (userId, stream) => {
         
         var call = peer.call(userId, stream)
         const video = document.createElement('video')
-        video.muted = true
+        //video.muted = true
         call.on('stream', userVideoStream => {
             addVideoStream(video, userVideoStream)
+            
         })
         call.on('close',()=> {
             video.remove();
