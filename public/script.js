@@ -40,7 +40,7 @@ navigator.mediaDevices.getUserMedia({
     socket.on('User-Joined', (userId) => {
 
         ConnecToNewUser(userId, stream);
-        window.location.reload();
+        //window.location.reload();
     })
 
 // Chat Box
