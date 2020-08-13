@@ -4,7 +4,7 @@ var socket = io('/'); // create peer and make the connect
 
 var peer = new Peer({
   host: '/',
-  port: 3030,
+  port: 443,
   path: '/peer-js'
 });
 var GirdVideo = document.getElementById('grid-video');

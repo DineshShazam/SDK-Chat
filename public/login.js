@@ -7,7 +7,7 @@ function displayName() {
         if(text.val().length != "")
         {
          //alert(text.val())
-         DisplayName = text.val();
+        // DisplayName = text.val();
          localStorage.setItem("user_name",JSON.stringify(text.val()))
          window.location.href="/vid-room"
         }

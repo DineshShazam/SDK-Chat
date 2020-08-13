@@ -42,8 +42,8 @@ io.on('connection', function (socket) {
   //     socket.to(room).broadcast.emit('user-disconnected',userId)
   // })
 });
-server.listen(3030, function () {
-  console.log('Application started at PORT 3030');
+server.listen(process.env.PORT || 3030, function () {
+  console.log(`Application started at PORT ${process.env.PORT || 3030}`);
 });
 var _default = server;
 exports["default"] = _default;
