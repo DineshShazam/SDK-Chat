@@ -10,7 +10,7 @@ var peer = new Peer({
 
 var GirdVideo = document.getElementById('grid-video');
 var myVideo = document.createElement('video');
-//myVideo.muted = true;
+myVideo.muted = true;
 const peers = {}
 
 
@@ -121,6 +121,7 @@ const ConnecToNewUser = (userId, stream) => {
         
         var call = peer.call(userId, stream)
         const video = document.createElement('video')
+        video.muted = true
         call.on('stream', userVideoStream => {
             addVideoStream(video, userVideoStream)
         })
