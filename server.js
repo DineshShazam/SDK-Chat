@@ -39,6 +39,6 @@ io.on('connection', socket => {
 
 })
 
-server.listen(3030,()=>{console.log('Application started at PORT 3030')})
+server.listen(process.env.PORT || 3030,()=>{console.log(`Application started at PORT ${process.env.PORT}`)})
 
 // export default server
