@@ -16,9 +16,9 @@ io.on('connection', socket => {
 
         socket.join(room_id).broadcast.emit('User-Joined',userId);
 
-        socket.on('message', (msg,name) => {
-            console.log('message method called '+name)
-            io.to(room_id).emit('create-msg',msg,name)
+        socket.on('message', (msg) => {
+            //console.log('message method called '+name)
+            io.to(room_id).emit('create-msg',msg)
         })
 
         socket.on('user-disconnect', room => {

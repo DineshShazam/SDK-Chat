@@ -51,17 +51,17 @@ $('html').keydown((e) => {
         console.log(text.val())
         const Display_name = localStorage.getItem("user_name");
         console.log(Display_name);
-        socket.emit('message',text.val(),Display_name);
+        socket.emit('message',text.val());
         text.val('')   
     }
 })
 
-socket.on('create-msg', (msg,name) => {
-    console.log('message from server',name)
+socket.on('create-msg', (msg) => {
+    //console.log('message from server',name)
     const user_name = name.replace(/["']/g, "");
 
     $('ul').append(`<li class="message">
-    <b style="color:white">${user_name}<b><br/>
+    <b style="color:white">USER<b><br/>
     <p style="color:white">${msg}</p>
     
     </li>`)
@@ -79,20 +79,15 @@ socket.on('user-disconnected',userId => {
     
 })
 
-}).catch(err => console.log('Error while cathing the stream ' + err));
+}).catch(err => {
+    console.log('Error while cathing the stream ' + err);
+});
 
 
 
 
 // Once peer connection is ready 
-peer.on('open', id => {
-    const NumUsers = id;
-    console.log('Number of users joined '+NumUsers)
-    // Requesting to Join room 
-    console.log(Room_Id)
-    socket.emit('join-room', Room_Id, id)
 
-})
 
 
 // function LeaveRoom(room) { 
@@ -109,7 +104,14 @@ const LeaveRoom = (room) => {
 }
 
 
+peer.on('open', id => {
+    const NumUsers = id;
+    console.log('Number of users joined '+NumUsers)
+    // Requesting to Join room 
+    console.log(Room_Id)
+    socket.emit('join-room', Room_Id, id)
 
+})
 
 const ConnecToNewUser = (userId, stream) => {
 
