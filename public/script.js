@@ -1,9 +1,10 @@
 const socket = io('/')
 // create peer and make the connect
 var peer = new Peer({
-    host: '/',
-    port: 3030,
     path: '/peer-js',
+    host: '/',
+    port: 443,
+    
 
 })
 
