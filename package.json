@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec babel-node server.js",
     "build": "npm run clean && babel . --ignore node_modules --out-dir build",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run start",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run start",
     "clean": "rimraf build",
-    "start": "node build/server.js"
+    "start": "node server.js"
   },
   "author": "Dinesh",
   "license": "ISC",
@@ -19,14 +19,10 @@
     "express-handlebars": "^5.1.0",
     "peer": "^0.5.3",
     "socket.io": "^2.3.0",
-    "uuid": "^8.3.0"
+    "uuid": "^8.3.0",
+    "uuidv4": "^6.2.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/node": "^7.8.7",
-    "@babel/plugin-transform-runtime": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "nodemon": "^2.0.4",
-    "rimraf": "^3.0.2"
+    "nodemon": "^2.0.4"
   }
 }

@@ -1,7 +1,7 @@
-import express from 'express'
-import path from 'path'
-import { v4 as uuidv4 } from 'uuid';
-import handlebars from 'express-handlebars'
+const express = require('express')
+const path = require('path')
+const { uuid } = require('uuidv4');
+const handlebars = require('express-handlebars')
 
 const app = express();
 
@@ -25,7 +25,7 @@ app.get('/',(req,res) => {
 });
 
 app.get('/vid-room',(req,res) => {
-    res.redirect(`/${uuidv4()}`)
+    res.redirect(`/${uuid()}`)
 })
 
 app.get('/:roomid',(req,res) => {
@@ -37,8 +37,11 @@ app.get('/:roomid',(req,res) => {
 
 
 
-export default app;
+module.exports = app 
 
 
-
+// "@babel/core": "^7.9.6",
+// "@babel/node": "^7.8.7",
+// "@babel/plugin-transform-runtime": "^7.9.6",
+// "@babel/preset-env": "^7.9.6",
 
