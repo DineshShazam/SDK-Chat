@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec babel-node server.js",
     "build": "npm run clean && babel . --ignore node_modules --out-dir build",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run start",
     "clean": "rimraf build",
     "start": "node server.js"
   },

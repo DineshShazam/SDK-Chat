@@ -35,6 +35,7 @@ io.on('connection', socket => {
     //     console.log('disconnect method2 called')
     //     socket.to(room).broadcast.emit('user-disconnected',userId)
     // })
+    // heroku apps:destroy [YOUR-APP-HERE]
 
 })
 
